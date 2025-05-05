@@ -1,0 +1,28 @@
+{
+  "name": "hublast-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky",
+    "commitlint": "commitlint --edit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HublastX/Hublast-Blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HublastX/Hublast-Blog/issues"
+  },
+  "homepage": "https://github.com/HublastX/Hublast-Blog#readme",
+  "dependencies": {
+    "husky": "^9.1.7",
+        "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0"
+
+  }
+}
