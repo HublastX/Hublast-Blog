@@ -1,58 +1,41 @@
 package com.hublast.api_blog.model;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @Entity
-@Table(name = "users") // "user" is a reserved keyword in some SQL dialects
-@Schema(description = "Represents a user of the blog platform")
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "TB_USER")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(description = "Unique identifier of the user", example = "1")
+    @Column(name = "USER_ID")
     private Long id;
 
-    @Schema(description = "Username of the user", example = "john_doe")
+    @Column(name = "USERNAME", nullable = false)
+    @NotNull(message = "Username cannot be null")
     private String username;
 
-    @Schema(description = "Email address of the user", example = "john@example.com")
+    @Column(name = "EMAIL", nullable = false, unique = true)
+    @NotNull(message = "Email cannot be null")
     private String email;
 
-    @Schema(description = "Password for authentication (should be securely hashed and stored)", example = "securePassword123")
+    @Column(name = "PASSWORD", nullable = false)
+    @NotBlank(message = "Password cannot be blank")
     private String password;
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
 
